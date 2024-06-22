@@ -1,0 +1,12 @@
+black==24.4.2
+dataclasses==0.6
+loguru==0.7.2
+matplotlib==3.9.0
+numpy==2.0.0
+opencv-contrib-python==4.10.0.84
+opencv-python==4.10.0.84
+pandas==2.2.2
+pillow==10.3.0
+torch==2.3.1
+scikit-learn==1.5.0
+pytest==8.2.2
