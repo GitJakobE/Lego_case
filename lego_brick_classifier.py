@@ -1,11 +1,12 @@
+from loguru import logger
 import pickle
 from typing import Union
 from pathlib import Path
 
 import pandas as pd
 from sklearn.neighbors import KNeighborsClassifier
-import numpy as np
 
+from constants import MODEL_PATH
 from schemas import LegoPiece
 
 
@@ -24,27 +25,31 @@ class LegoBrickClassifier:
         self.nearest_neighbor_model = KNeighborsClassifier(metric='manhattan', n_neighbors=3, weights='distance')
         self.load_model()
 
-    def load_model(self) -> None:
-        if Path("nearest_neighbor_model.pkl").exists():
-            with open('nearest_neighbor_model.pkl', 'rb') as f:
+    def load_model(self, filename: str = MODEL_PATH) -> None:
+        logger.debug(f"Loading model from {filename}")
+        if Path(filename).exists():
+            with open(filename, 'rb') as f:
                 self.nearest_neighbor_model = pickle.load(f)
+        else:
+            logger.warning(f"No model found at {filename}")
 
-    def save_model(self) -> None:
-        with open('nearest_neighbor_model.pkl', 'wb') as f:
+    def save_model(self, filename: str = MODEL_PATH) -> None:
+        logger.debug(f"Saving model to {filename}")
+        with open(filename, 'wb') as f:
             pickle.dump(self.nearest_neighbor_model, f)
 
     def train_model(self, dataset_path: str) -> None:
-        # TODO: should be cleaned up before
+        # TODO: data should be cleaned up before
+        logger.info("Starting to train model")
         train_df = pd.read_csv(dataset_path)
         y = train_df["brick_id"]
         x = train_df.drop(["brick_id"], axis=1)
 
         self.nearest_neighbor_model.fit(x, y)
+        logger.info("Model trained")
 
-
-    def run(self) -> None:
+    def predict(self, weight: float, color_id: int, production_id: int) -> int:
         """
         predicts the brick id from the "data" and sends it to the database
         """
-        dataset = pd.DataFrame([self.color_id, self.weight])
-        self.nearest_neighbor_model.predict(dataset)
+        return self.nearest_neighbor_model.predict([[weight, color_id]])[0]
