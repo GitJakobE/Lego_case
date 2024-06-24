@@ -18,12 +18,12 @@ def training_df():
 def test_load_save_model() -> None:
     """saves a model deletes it and loads it again with cleanup"""
     identifier = LegoBrickClassifier()
-    identifier.save_model()
+    identifier.save_model(filename="test_model.pkl")
     identifier.nearest_neighbor_model = None
-    identifier.load_model()
+    identifier.load_model(filename="test_model.pkl")
     assert identifier.nearest_neighbor_model is not None
-    Path(MODEL_PATH).unlink()
-    assert not Path(MODEL_PATH).exists()
+    Path("test_model.pkl").unlink()
+    assert not Path("test_model.pkl").exists()
 
 
 def test_train_model(training_df) -> None:
