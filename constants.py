@@ -1,0 +1,1 @@
+MODEL_PATH = 'nearest_neighbor_model.pkl'
