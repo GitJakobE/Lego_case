@@ -48,8 +48,8 @@ class LegoBrickClassifier:
         self.nearest_neighbor_model.fit(x, y)
         logger.info("Model trained")
 
-    def predict(self, weight: float, color_id: int, production_id: int) -> int:
+    def predict(self, weight: float, color_id: int) -> int:
         """
-        predicts the brick id from the "data" and sends it to the database
+        predicts the brick id from the data
         """
         return self.nearest_neighbor_model.predict([[weight, color_id]])[0]

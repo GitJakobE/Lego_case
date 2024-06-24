@@ -37,4 +37,7 @@ components of the platform?
     * The vision systems can tell if this in a specific piece and if the set is indeed complete, but the PLC should keep track of the sets and what they should contain.
     * The communication between the PCs and the PLC could be done with Snap7, but there are other possibilities
 - What stakeholders and resources would you engage to help achieve a successful solution
-    * The most important stakeholder is imo the user in a case like this. They will be using the machine, and they will have to live with some of the choices for years. It is important to listen to their concerns and desires.
+    * The most important stakeholder is imo the user in a case like this. They will be using the machine, and they will have to live with some of the choices for years. It is most important to listen to their concerns and desires and to get them on board with any solution.
+    * The machine builders will also need to be kept close and it is important to have a common understanding with them that the machine is not done before all the parts work as a whole.
+    * The other internal stakeholders are in my opinion not as important. The databases will need to be up to date and maintained but once the department has been informed and are on board I don't see it as a continues effort in the same way.
+  

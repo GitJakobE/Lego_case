@@ -1,6 +1,5 @@
-import numpy as np
 from loguru import logger
-from .lego_brick_classifier import LegoBrickClassifier
+from lego_brick_classifier import LegoBrickClassifier
 
 
 def main():
@@ -8,9 +7,10 @@ def main():
     logger.info("Starts a UI")
 
     logger.info("Starts a number of threads to round robin the processes")
-    # This could run a thread to start a round robin series to get the images and weights
-    identifier = LegoBrickClassifier(image=np.zeros((400, 400, 3)), weigh=10.2, color_id=20)
-    identifier.run()
+    # This could run a thread to start a round robin series to get weight and the color
+    # Instead we will run it only once
+    identifier = LegoBrickClassifier()
+    identifier.predict(weight=10.2, color_id=20)
     logger.info("Intelligently automates the scanning")
 
     logger.info("Recognition")

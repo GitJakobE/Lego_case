@@ -6,6 +6,7 @@ import pandas as pd
 from lego_brick_classifier import LegoBrickClassifier
 from constants import MODEL_PATH
 
+
 @fixture
 def training_df():
     df = pd.DataFrame(data={'weights': [1.0, 1.1, 1.0, 2, 2, 1.8, 5, 6, 7, 8, 9, 10],
