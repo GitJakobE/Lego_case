@@ -6,7 +6,7 @@ from pathlib import Path
 import pandas as pd
 from sklearn.neighbors import KNeighborsClassifier
 
-from constants import MODEL_PATH
+from common.constants import MODEL_PATH
 from schemas import LegoPiece
 
 

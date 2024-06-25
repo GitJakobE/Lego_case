@@ -10,7 +10,7 @@ def main():
     # This could run a thread to start a round robin series to get weight and the color
     # Instead we will run it only once
     identifier = LegoBrickClassifier()
-    identifier.predict(weight=10.2, color_id=20)
+    brick_id = identifier.predict(weight=10.2, color_id=20)
     logger.info("Intelligently automates the scanning")
 
     logger.info("Recognition")
