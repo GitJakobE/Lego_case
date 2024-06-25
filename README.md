@@ -17,7 +17,7 @@ would your strategies be to address them?
     * Like the fail quickly. I would need to test critical parts of the system before the final machine arrives so other solutions could be implemented in due time.
   * False classifications: 
     * Every image should be saved for the operator to look through and the machine can learn from it in the future. 
-    * Also every final set should be photoed.
+    * Also every final set should be photographed and validated.
   * Pieces that are not split into individual pieces. 
     * This could take a long time as well. A separate ML algorithm could look for this.
   * Issues from the operators - no overtime, less hours. Concern for their jobs. 
@@ -25,12 +25,15 @@ would your strategies be to address them?
 - When using image recognition or machine learning, which attributes do you believe should 
 be prioritized to ensure accurate sorting? Additionally, describe how the system should 
 handle anomalies, if any.
-    * I am thinking that the system need to handle hundreds of different pieces. I am incline to think it would be better to split the ML model into a series of models: big/small and by color. From the color and the size I would add CNN to determine which shape. 
+    * Since the system need to handle hundreds of different pieces I am incline to think it would be better to split the ML model into a series of models: big/small and by color. From the color and the size I would add CNN to determine which shape. 
+    * This allows you to focus on single difficult distinctions.
+    * In addition to the CNN one could add a 3d laser line scan as well as a weight cell to improve accuracy.
     * Anomalies (I am assuming you mean pieces which cannot be classified) should imo be sorted in its own "bucket" and handled manually.  
 - How would you design a database to track and manage the necessary information for this 
 platform? What attributes are important to store in the database and what aspects are 
 important to consider here?
-    * This will be answered visually in another place.
+    * The most important part of the database is the production and updating the running sets. In the production we should save an image of the brick (or a link to it), as well as the id and which set it ended up in. The open sets should be linked to the set design with the list of brick ids in that set. I think a complete set should also contain a validation photo in the end.
+    * A set af tables will be answered visually in another place.
 - How would you ensure seamless integration and interaction between the different 
 components of the platform?
     * I would leave the control to a PLC and have the PC/cloud be the slave. This might not be the case for this demo, but the PLC can keep track of the different sets in real time.
