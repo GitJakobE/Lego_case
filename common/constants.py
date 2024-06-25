@@ -1,1 +1,1 @@
-MODEL_PATH = '../Model/nearest_neighbor_model.pkl'
+MODEL_PATH = './Models/nearest_neighbor_model.pkl'
