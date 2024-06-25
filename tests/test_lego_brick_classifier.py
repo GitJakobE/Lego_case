@@ -4,7 +4,6 @@ from pytest import fixture
 import pandas as pd
 
 from lego_brick_classifier import LegoBrickClassifier
-from constants import MODEL_PATH
 
 
 @fixture

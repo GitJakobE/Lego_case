@@ -4,7 +4,7 @@ import numpy as np
 from pydantic import BaseModel, ConfigDict
 
 
-class LegoColors(BaseModel):
+class LegoColor(BaseModel):
     id: int
     name: str
     color_hex: str
@@ -15,7 +15,7 @@ class LegoPiece(BaseModel):
     id: int
     name: str
     weight: float
-    color_id: LegoColors
+    color_id: LegoColor
     cad_drawing: str
     in_production: bool
 
